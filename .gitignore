@@ -7,9 +7,12 @@
 # Node modules
 node_modules/
 
-# Out
+# Output folder
 out/
 
+# Logs
+*.log
 
-.vscodeignore
-.vscode-test.mjs
+# OS files
+.DS_Store
+Thumbs.db
