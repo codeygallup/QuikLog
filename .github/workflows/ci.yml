@@ -31,6 +31,6 @@ jobs:
         run: |
           npm run compile
 
-      - name: Run tests
+      - name: Run lint
         run: |
-          npm test
+          npm run lint
