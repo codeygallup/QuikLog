@@ -1,0 +1,8 @@
+# VS Code test environment
+.vscode-test/
+
+# VS Code workspace settings
+.vscode/
+
+# Node modules
+node_modules/
