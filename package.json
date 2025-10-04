@@ -9,15 +9,37 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:feature"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "quiklog.helloWorld",
-        "title": "Hello World"
+        "command": "quiklog.insertLog",
+        "title": "Insert QuikLog"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "quiklog.insertLog",
+        "key": "ctrl+alt+l",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "quiklog.insertLog",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
