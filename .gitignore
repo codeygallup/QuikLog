@@ -9,3 +9,7 @@ node_modules/
 
 # Out
 out/
+
+
+.vscodeignore
+.vscode-test.mjs
