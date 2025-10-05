@@ -20,7 +20,7 @@
     "onLanguage:java",
     "onLanguage:feature"
   ],
-  "main": "vscode/out/extension.js",
+  "main": "./vscode/out/extension.js",
   "contributes": {
     "commands": [
       {
