@@ -11,9 +11,7 @@
     "type": "git",
     "url": "https://github.com/codeygallup/QuikLog"
   },
-  "categories": [
-    "Other"
-  ],
+  "categories": ["Other"],
   "activationEvents": [
     "onCommand:quiklog.insertLog",
     "onLanguage:javascript",
@@ -53,7 +51,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "mocha -r ts-node/register \"src/test/**/*.test.ts\""
+    "test": "mocha -r ts-node/register \"src/test/**/*.test.ts\"",
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.50.0",
@@ -66,6 +66,7 @@
     "mocha": "^10.2.0",
     "ts-node": "^10.9.1",
     "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "vsce": "^2.12.0"
   }
 }
