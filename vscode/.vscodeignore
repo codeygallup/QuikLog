@@ -1,7 +1,6 @@
 # Exclude tests and build output
 .vscode-test/
 src/test/
-out/
 
 # VS Code workspace settings
 .vscode/
