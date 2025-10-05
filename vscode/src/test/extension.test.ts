@@ -16,7 +16,7 @@ describe("getLogTemplate", () => {
   });
 
   it("returns Feature template", () => {
-    assert.strictEqual(getLogTemplate("feature", "myVar"), "print 'myVar: ', myVar");
+    assert.strictEqual(getLogTemplate("feature", "myVar"), "* print 'myVar: ', myVar");
   });
 
   it("falls back for unknown languages", () => {

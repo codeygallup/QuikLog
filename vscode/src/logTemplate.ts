@@ -12,7 +12,7 @@ const getLogTemplate = (language: string, variable: string): string => {
       template = `print('${variable}: ', ${variable})`;
       break;
     case "feature":
-      template = `print '${variable}: ', ${variable}`;
+      template = `* print '${variable}: ', ${variable}`;
       break;
     default:
       template = `${variable}`;

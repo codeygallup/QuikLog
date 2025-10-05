@@ -1,71 +1,197 @@
-# quiklog README
+# QuikLog
 
-This is the README for your extension "quiklog". After writing up a brief description, we recommend including the following sections.
+QuikLog is a VS Code extension that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive console.log statements manually—let QuikLog do it for you!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **One-Click Logging**: Highlight any variable and instantly insert a formatted log statement
+- **Multi-Language Support**: Works with JavaScript, TypeScript, Python, Java, and more
+- **Smart Formatting**: Automatically formats log statements according to language conventions
+- **Keyboard Shortcut**: Use `Ctrl+Alt+L` (or `Cmd+Alt+L` on Mac) for lightning-fast logging
+- **Context Menu Integration**: Right-click and select "Insert QuikLog" from the context menu
 
-For example if there is an image subfolder under your extension project workspace:
+### How It Works
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Highlight a variable in your code
+2. Press `Ctrl+Alt+L` (or right-click and select "Insert QuikLog")
+3. A properly formatted log statement appears on the next line
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+**Example:**
 
-## Requirements
+# QuikLog 🚀
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Quickly insert debug log statements for any selected variable in your editor — works across JavaScript, TypeScript, Python, Java, Feature files (Karate), and more.
 
-## Extension Settings
+![QuikLog demo](./vscode/images/quiklog.gif)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Short, useful README that gives a fast path to trying the extension, plus full details below.
 
 ---
 
-## Following extension guidelines
+## Quick start 🚀
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+1. Highlight a variable or expression in the editor
+2. Press Ctrl+Alt+L (Cmd+Alt+L on macOS) or right-click and choose "Insert QuikLog"
+3. A formatted log statement is inserted on the next line
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+Example (JavaScript):
 
-## Working with Markdown
+```javascript
+const userName = "John Doe";
+// After QuikLog ->
+# QuikLog 🚀
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+Quickly insert debug log statements for any selected variable in your editor — works across JavaScript, TypeScript, Python, Java, Feature files (Karate), and more.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## For more information
+Demo: (none yet) — add a short animated GIF in `images/demo.gif` later to show the extension in action.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+---
 
-**Enjoy!**
+## Quick start 🚀
+
+1. Highlight a variable or expression in the editor.
+2. Press Ctrl+Alt+L (Cmd+Alt+L on macOS) or right-click and choose "Insert QuikLog".
+3. The extension inserts a formatted log statement on the next line, preserving indentation.
+
+Quick example (JavaScript):
+
+```javascript
+const userName = "John Doe";
+// After QuikLog ->
+console.log('userName: ', userName);
+```
+
+---
+
+## Examples
+
+Below are before/after snippets that match the extension's templates (see `src/logTemplate.ts`).
+
+JavaScript / TypeScript
+
+```javascript
+const userName = "John Doe";
+// After QuikLog ->
+console.log('userName: ', userName);
+```
+
+Python
+
+```python
+user_name = "John Doe"
+# After QuikLog ->
+print('user_name: ', user_name)
+```
+
+Java
+
+```java
+String userName = "John Doe";
+// After QuikLog ->
+System.out.println("userName: " + userName);
+```
+
+Feature (Karate)
+
+```feature
+* def userName = 'John Doe'
+* print 'userName: ', userName
+```
+
+---
+
+## Supported languages (templates)
+
+The table below shows the log template QuikLog inserts for a given language. Replace `variable` with your selected identifier or expression.
+
+| Language | Inserted template | Notes |
+|---|---|---|
+| JavaScript / TypeScript | `console.log('variable: ', variable);` | Uses single quotes and a trailing comma for readable output |
+| Python | `print('variable: ', variable)` | Python print without semicolon |
+| Java | `System.out.println("variable: " + variable);` | Uses string concatenation for Java |
+| Feature (Karate) | `* print 'variable: ', variable` | Karate feature file print statement |
+
+If your language isn't listed, open an issue — templates are easy to add.
+
+---
+
+## Installation
+
+Install from the VS Code Marketplace:
+
+1. Open the Extensions view (Ctrl+Shift+X).
+2. Search for "QuikLog" or run: `ext install codeygallup.quiklog`.
+
+---
+
+## Usage
+
+- Keyboard shortcut: Highlight text and press Ctrl+Alt+L (Cmd+Alt+L on macOS).
+- Context menu: Right-click a selection and choose "Insert QuikLog".
+- Command Palette: Ctrl+Shift+P (Cmd+Shift+P on macOS), then run "Insert QuikLog".
+
+Behavior notes:
+
+- If no text is selected you'll receive an instruction to select a variable or expression.
+- The log statement is inserted on the next line and preserves the current indentation level.
+
+---
+
+## Extension settings
+
+QuikLog works out of the box with no required settings. Future releases may add customization such as:
+
+- Default logging style (short vs verbose)
+- Toggle per-language templates
+- Customizable keyboard shortcut
+
+---
+
+## Known issues
+
+- Requires a selection — nothing will be inserted if no text is selected.
+- Language detection is based on the editor language; files with uncommon extensions may not be recognized.
+
+If you encounter other issues, please open an issue in the repository.
+
+---
+
+## Release notes
+
+### 1.0.0
+
+- Initial release: Insert logs for JavaScript/TypeScript, Python, Java, and Feature files. Keyboard shortcut and context menu integration.
+
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome. To contribute:
+
+1. Fork the repo.
+2. Create a branch for your change.
+3. Open a pull request with a clear description.
+
+See the project's GitHub page: https://github.com/codeygallup/QuikLog
+
+---
+
+## License
+
+MIT © codeygallup
+
+---
+
+## Feedback
+
+If QuikLog saves you time, please consider:
+
+- ⭐ Starring the repository on GitHub
+- ✍️ Leaving a review on the VS Code Marketplace
+- 🐛 Opening issues for bugs or feature requests
+
+Enjoy logging like a pro! 🐱‍💻
