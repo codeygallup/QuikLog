@@ -1,12 +1,11 @@
 # Exclude tests and build output
 .vscode-test/
 src/test/
-out/
 
 # VS Code workspace settings
 .vscode/
 
-# Node modules (you only want your dependencies listed in package.json)
+# Node modules
 node_modules/
 
 # Miscellaneous

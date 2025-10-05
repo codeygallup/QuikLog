@@ -34,3 +34,7 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: vscode
+
+      - name: Package Extension
+        run: npm run package
+        working-directory: vscode
