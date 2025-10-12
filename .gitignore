@@ -16,8 +16,3 @@ out/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Ignore images and documentation files
-vscode/LICENSE
-vscode/README.md
-vscode/images
