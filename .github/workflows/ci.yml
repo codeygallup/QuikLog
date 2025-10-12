@@ -35,6 +35,13 @@ jobs:
         run: npm test
         working-directory: vscode
 
+      - name: Setup symlinks for packaging
+        run: |
+          ln -s ../LICENSE LICENSE
+          ln -s ../README.md README.md
+          ln -s ../images images
+        working-directory: vscode
+
       - name: Package Extension
         run: npm run package
         working-directory: vscode
