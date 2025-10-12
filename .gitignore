@@ -16,6 +16,8 @@ out/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Relevant files to be included in the package
 vscode/LICENSE
 vscode/README.md
 vscode/images
