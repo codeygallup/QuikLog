@@ -1,6 +1,15 @@
-# QuikLog
+# QuikLog 
 
-QuikLog is a VS Code extension that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive console.log statements manually—let QuikLog do it for you!
+QuikLog is a VS Code extension that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive console.log statements manually and let QuikLog do it for you!
+
+> ⚡ Instantly insert log statements — no more typing `console.log()` by hand!
+
+**Example:**
+
+![QuikLog demo](images/quiklog.gif)
+
+[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) 
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## Features
 
@@ -14,95 +23,7 @@ QuikLog is a VS Code extension that lets you quickly insert debug log statements
 
 1. Highlight a variable in your code
 2. Press `Ctrl+Alt+L` (or right-click and select "Insert QuikLog")
-3. A properly formatted log statement appears on the next line
-
-**Example:**
-
-# QuikLog 🚀
-
-Quickly insert debug log statements for any selected variable in your editor — works across JavaScript, TypeScript, Python, Java, Feature files (Karate), and more.
-
-![QuikLog demo](./vscode/images/quiklog.gif)
-
-[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
-Short, useful README that gives a fast path to trying the extension, plus full details below.
-
----
-
-## Quick start 🚀
-
-1. Highlight a variable or expression in the editor
-2. Press Ctrl+Alt+L (Cmd+Alt+L on macOS) or right-click and choose "Insert QuikLog"
-3. A formatted log statement is inserted on the next line
-
-Example (JavaScript):
-
-```javascript
-const userName = "John Doe";
-// After QuikLog ->
-# QuikLog 🚀
-
-Quickly insert debug log statements for any selected variable in your editor — works across JavaScript, TypeScript, Python, Java, Feature files (Karate), and more.
-
-[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
-Demo: (none yet) — add a short animated GIF in `images/demo.gif` later to show the extension in action.
-
----
-
-## Quick start 🚀
-
-1. Highlight a variable or expression in the editor.
-2. Press Ctrl+Alt+L (Cmd+Alt+L on macOS) or right-click and choose "Insert QuikLog".
-3. The extension inserts a formatted log statement on the next line, preserving indentation.
-
-Quick example (JavaScript):
-
-```javascript
-const userName = "John Doe";
-// After QuikLog ->
-console.log('userName: ', userName);
-```
-
----
-
-## Examples
-
-Below are before/after snippets that match the extension's templates (see `src/logTemplate.ts`).
-
-JavaScript / TypeScript
-
-```javascript
-const userName = "John Doe";
-// After QuikLog ->
-console.log('userName: ', userName);
-```
-
-Python
-
-```python
-user_name = "John Doe"
-# After QuikLog ->
-print('user_name: ', user_name)
-```
-
-Java
-
-```java
-String userName = "John Doe";
-// After QuikLog ->
-System.out.println("userName: " + userName);
-```
-
-Feature (Karate)
-
-```feature
-* def userName = 'John Doe'
-* print 'userName: ', userName
-```
-
----
+3. Done! A formatted log appears on the next line
 
 ## Supported languages (templates)
 
