@@ -16,3 +16,6 @@ out/
 # OS files
 .DS_Store
 Thumbs.db
+vscode/LICENSE
+vscode/README.md
+vscode/images
