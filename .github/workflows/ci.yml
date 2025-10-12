@@ -35,6 +35,13 @@ jobs:
         run: npm test
         working-directory: vscode
 
+      - name: Copy assets for packaging
+        run: |
+          cp ../LICENSE LICENSE
+          cp ../README.md README.md
+          cp -r ../images images
+        working-directory: vscode
+
       - name: Package Extension
         run: npm run package
         working-directory: vscode
