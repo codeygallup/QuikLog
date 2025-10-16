@@ -2,7 +2,9 @@ const getLogTemplate = (language: string, variable: string): string => {
   let template;
   switch (language) {
     case "javascript":
+    case "javascriptreact":
     case "typescript":
+    case "typescriptreact":
       template = `console.log('${variable}: ', ${variable});`;
       break;
     case "java":
