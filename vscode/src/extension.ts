@@ -25,9 +25,17 @@ export function activate(context: vscode.ExtensionContext) {
       const selection = editor.selection;
       let variable = document.getText(selection).trim();
 
+      // If no text is selected, get the word at the cursor position
+      if (!variable) {
+        const wordRange = document.getWordRangeAtPosition(selection.active);
+        if (wordRange) {
+          variable = document.getText(wordRange).trim();
+        }
+      }
+
       if (!variable) {
         vscode.window.showInformationMessage(
-          "Please highlight a variable to insert a QuikLog."
+          "Please highlight a variable or put the cursor on it to insert a QuikLog."
         );
         return;
       }
@@ -38,8 +46,11 @@ export function activate(context: vscode.ExtensionContext) {
       // Insert the template on the next line after the current selection
       const currentLine = document.lineAt(selection.end.line);
       const lineEnd = currentLine.range.end;
-      const indent = currentLine.text.substring(0, currentLine.firstNonWhitespaceCharacterIndex);
-      
+      const indent = currentLine.text.substring(
+        0,
+        currentLine.firstNonWhitespaceCharacterIndex
+      );
+
       await editor.edit((editBuilder) => {
         editBuilder.insert(lineEnd, "\n" + `${indent}${template}`);
       });
