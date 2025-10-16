@@ -36,10 +36,12 @@ export function activate(context: vscode.ExtensionContext) {
       const template = getLogTemplate(language, variable);
 
       // Insert the template on the next line after the current selection
-      const lineEnd: vscode.Position = document.lineAt(selection.end.line).range
-        .end;
+      const currentLine = document.lineAt(selection.end.line);
+      const lineEnd = currentLine.range.end;
+      const indent = currentLine.text.substring(0, currentLine.firstNonWhitespaceCharacterIndex);
+      
       await editor.edit((editBuilder) => {
-        editBuilder.insert(lineEnd, "\n" + template);
+        editBuilder.insert(lineEnd, "\n" + `${indent}${template}`);
       });
     }
   );
