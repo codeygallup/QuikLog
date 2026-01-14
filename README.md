@@ -1,4 +1,4 @@
-# QuikLog 
+# QuikLog
 
 QuikLog is a VS Code extension that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive console.log statements manually and let QuikLog do it for you!
 
@@ -8,13 +8,13 @@ QuikLog is a VS Code extension that lets you quickly insert debug log statements
 
 ![QuikLog demo](images/quiklog.gif)
 
-[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) 
+[![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## Features
 
 - **One-Click Logging**: Highlight any variable and instantly insert a formatted log statement
-- **Multi-Language Support**: Works with JavaScript, TypeScript, Python, Java, and more
+- **Multi-Language Support**: Works with JavaScript, TypeScript, Python, Java, Gherkin, C, C++, and C#
 - **Smart Formatting**: Automatically formats log statements according to language conventions
 - **Keyboard Shortcut**: Use `Ctrl+Alt+L` (or `Cmd+Alt+L` on Mac) for lightning-fast logging
 - **Context Menu Integration**: Right-click and select "Insert QuikLog" from the context menu
@@ -29,12 +29,15 @@ QuikLog is a VS Code extension that lets you quickly insert debug log statements
 
 The table below shows the log template QuikLog inserts for a given language. Replace `variable` with your selected identifier or expression.
 
-| Language | Inserted template | Notes |
-|---|---|---|
-| JavaScript / TypeScript | `console.log('variable: ', variable);` | Uses single quotes and a trailing comma for readable output |
-| Python | `print('variable: ', variable)` | Python print without semicolon |
-| Java | `System.out.println("variable: " + variable);` | Uses string concatenation for Java |
-| Feature (Karate) | `* print 'variable: ', variable` | Karate feature file print statement |
+| Language                   | Inserted template                                     | Notes                                                       |
+| -------------------------- | ----------------------------------------------------- | ----------------------------------------------------------- |
+| JavaScript / TypeScript    | `console.log('variable: ', variable);`                | Uses single quotes and a trailing comma for readable output |
+| Python                     | `print('variable: ', variable)`                       | Python print without semicolon                              |
+| Java                       | `System.out.println("variable: " + variable);`        | Uses string concatenation for Java                          |
+| Gherkin (Feature / Karate) | `* print 'variable: ', variable`                      | Karate feature file print statement                         |
+| C                          | `printf("%s: %d\n", "variable", variable);`           | Standard C printf                                           |
+| C++                        | `std::cout << "variable: " << variable << std::endl;` | Uses iostream                                               |
+| C#                         | `Console.WriteLine("variable: " + variable);`         | .NET console output                                         |
 
 If your language isn't listed, open an issue — templates are easy to add.
 
@@ -82,6 +85,17 @@ If you encounter other issues, please open an issue in the repository.
 ---
 
 ## Release notes
+
+### 1.2.0
+
+- Fixed Gherkin language detection for .feature files
+- Added C, C++, and C# support
+
+### 1.1.0
+
+- Added support for JSX and TSX files
+- Cursor detection for variables (no selection required)
+- Improved snippet indentation
 
 ### 1.0.0
 
