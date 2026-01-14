@@ -36,7 +36,7 @@
     "onLanguage:typescript",
     "onLanguage:python",
     "onLanguage:java",
-    "onLanguage:feature"
+    "onLanguage:gherkin"
   ],
   "main": "./out/extension.js",
   "contributes": {
