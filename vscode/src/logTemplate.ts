@@ -13,7 +13,7 @@ const getLogTemplate = (language: string, variable: string): string => {
     case "python":
       template = `print('${variable}: ', ${variable})`;
       break;
-    case "feature":
+    case "gherkin":
       template = `* print '${variable}: ', ${variable}`;
       break;
     default:
