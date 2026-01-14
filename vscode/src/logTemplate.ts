@@ -13,9 +13,19 @@ const getLogTemplate = (language: string, variable: string): string => {
     case "python":
       template = `print('${variable}: ', ${variable})`;
       break;
-    case "feature":
+    case "gherkin":
       template = `* print '${variable}: ', ${variable}`;
       break;
+    case "c":
+      template = `printf("%s: %d\\n", "${variable}", ${variable});`;
+      break;
+    case "cpp":
+      template = `std::cout << "${variable}: " << ${variable} << std::endl;`;
+      break;
+    case "csharp":
+      template = `Console.WriteLine("${variable}: " + ${variable});`;
+      break;
+
     default:
       template = `${variable}`;
   }

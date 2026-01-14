@@ -2,7 +2,7 @@
   "name": "quiklog",
   "displayName": "QuikLog",
   "description": "Quickly insert log statements in (almost) any language.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "icon": "images/icon-large.png",
   "engines": {
@@ -36,7 +36,10 @@
     "onLanguage:typescript",
     "onLanguage:python",
     "onLanguage:java",
-    "onLanguage:feature"
+    "onLanguage:gherkin",
+    "onLanguage:c",
+    "onLanguage:cpp",
+    "onLanguage:csharp"
   ],
   "main": "./out/extension.js",
   "contributes": {
