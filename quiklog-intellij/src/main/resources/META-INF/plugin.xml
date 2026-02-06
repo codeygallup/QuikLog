@@ -1,0 +1,37 @@
+<!-- Plugin Configuration File: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
+    <id>com.codeygallup.quiklog-intellij</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Quiklog</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/codeygallup">Codey Gallup</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+    QuikLog lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action.<br>
+    <br>
+    <b>Features:</b>
+    <ul>
+        <li>One-Click Logging: Highlight any variable and instantly insert a formatted log statement</li>
+        <li>Multi-Language Support: Works with JavaScript, TypeScript, Python, Java, C, C++, C#, and Gherkin</li>
+        <li>Smart Formatting: Automatically formats log statements according to language conventions</li>
+        <li>Keyboard Shortcut: Use Ctrl+Alt+L for lightning-fast logging</li>
+    </ul>
+]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action id="QuikLog.InsertLog" class="com.codeygallup.quiklogintellij.InsertLogAction" text="Insert QuikLog" description="QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive console.log statements manually!">
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+            <keyboard-shortcut first-keystroke="ctrl alt Q" keymap="$default" />
+        </action>
+    </actions>
+</idea-plugin>
