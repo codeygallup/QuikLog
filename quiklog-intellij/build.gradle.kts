@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.codeygallup"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -39,6 +39,10 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <h3>1.0.1</h3>
+            <ul>
+                <li>Added plugin icon</li>
+            </ul>
             <h3>1.0.0</h3>
             <ul>
                 <li>Initial release</li>
