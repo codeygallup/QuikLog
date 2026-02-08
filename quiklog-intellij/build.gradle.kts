@@ -29,7 +29,7 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         name = "QuikLog"
-        version = "1.0.0"
+        version = "1.0.1"
         description = """
             QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive console.log statements manually!
         """.trimIndent()
@@ -66,31 +66,3 @@ kotlin {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

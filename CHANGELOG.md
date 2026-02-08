@@ -4,6 +4,13 @@ All notable changes to the "quiklog" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [intellij-1.0.1] - 2026-01-19
+
+### Added
+
+- IntelliJ IDEA plugin released
+- Same features as VS Code extension
+
 ## [1.2.0] - 2026-01-14
 
 ### Fixed

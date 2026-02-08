@@ -9,6 +9,7 @@ QuikLog is a VS Code extension that lets you quickly insert debug log statements
 ![QuikLog demo](images/quiklog.gif)
 
 [![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/)
+[![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/30096-quiklog)](https://plugins.jetbrains.com/plugin/30096-quiklog)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## Features
@@ -45,10 +46,18 @@ If your language isn't listed, open an issue — templates are easy to add.
 
 ## Installation
 
-Install from the VS Code Marketplace:
+### VS Code
+1. Open the Extensions view (Ctrl+Shift+X)
+2. Search for "QuikLog" or run: `ext install codeygallup.quiklog`
 
-1. Open the Extensions view (Ctrl+Shift+X).
-2. Search for "QuikLog" or run: `ext install codeygallup.quiklog`.
+Or download from [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=codeygallup.quiklog)
+
+### IntelliJ IDEA
+1. Open Settings → Plugins
+2. Search for "QuikLog" in the Marketplace
+3. Click Install
+
+Or download from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30096-quiklog)
 
 ---
 
