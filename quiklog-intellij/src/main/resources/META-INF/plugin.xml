@@ -31,7 +31,7 @@
     <actions>
         <action id="QuikLog.InsertLog" class="com.codeygallup.quiklogintellij.InsertLogAction" text="Insert QuikLog" description="QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive console.log statements manually!">
             <add-to-group group-id="EditorPopupMenu" anchor="first" />
-            <keyboard-shortcut first-keystroke="ctrl alt Q" keymap="$default" />
+            <keyboard-shortcut first-keystroke="ctrl alt L" keymap="$default" />
         </action>
     </actions>
 </idea-plugin>
