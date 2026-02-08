@@ -20,7 +20,7 @@
         <li>One-Click Logging: Highlight any variable and instantly insert a formatted log statement</li>
         <li>Multi-Language Support: Works with JavaScript, TypeScript, Python, Java, C, C++, C#, and Gherkin</li>
         <li>Smart Formatting: Automatically formats log statements according to language conventions</li>
-        <li>Keyboard Shortcut: Use Ctrl+Alt+L for lightning-fast logging</li>
+        <li>Keyboard Shortcut: Use Ctrl+Alt+Q for lightning-fast logging</li>
     </ul>
 ]]></description>
 
@@ -31,7 +31,8 @@
     <actions>
         <action id="QuikLog.InsertLog" class="com.codeygallup.quiklogintellij.InsertLogAction" text="Insert QuikLog" description="QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive console.log statements manually!">
             <add-to-group group-id="EditorPopupMenu" anchor="first" />
-            <keyboard-shortcut first-keystroke="ctrl alt L" keymap="$default" />
+            <keyboard-shortcut first-keystroke="ctrl alt Q" keymap="$default" />
+            <keyboard-shortcut first-keystroke="ctrl alt Q" keymap="Mac OS X 10.5+" />
         </action>
     </actions>
 </idea-plugin>

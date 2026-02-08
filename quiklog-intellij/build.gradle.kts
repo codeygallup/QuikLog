@@ -47,7 +47,7 @@ intellijPlatform {
             <ul>
                 <li>Initial release</li>
                 <li>Support for Java, Python, JavaScript, TypeScript, C, C++, C#, and more</li>
-                <li>Keyboard Shortcut: ctrl + alt + l</li>
+                <li>Keyboard Shortcut: ctrl + alt + q</li>
             </ul>
         """.trimIndent()
     }
