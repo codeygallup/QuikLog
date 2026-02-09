@@ -47,12 +47,14 @@ If your language isn't listed, open an issue — templates are easy to add.
 ## Installation
 
 ### VS Code
+
 1. Open the Extensions view (Ctrl+Shift+X)
 2. Search for "QuikLog" or run: `ext install codeygallup.quiklog`
 
 Or download from [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=codeygallup.quiklog)
 
 ### IntelliJ IDEA
+
 1. Open Settings → Plugins
 2. Search for "QuikLog" in the Marketplace
 3. Click Install
@@ -63,9 +65,11 @@ Or download from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30
 
 ## Usage
 
-- Keyboard shortcut: Highlight text and press Ctrl+Alt+L (Cmd+Alt+L on macOS).
-- Context menu: Right-click a selection and choose "Insert QuikLog".
-- Command Palette: Ctrl+Shift+P (Cmd+Shift+P on macOS), then run "Insert QuikLog".
+**Context Menu**: Right-click a selection and choose "Insert QuikLog".
+
+**Keyboard shortcuts:**
+- **VS Code**: Ctrl+Alt+L (Cmd+Option+L on macOS)
+- **IntelliJ IDEA**: Ctrl+Alt+Q (Control+Option+Q on macOS)
 
 Behavior notes:
 
