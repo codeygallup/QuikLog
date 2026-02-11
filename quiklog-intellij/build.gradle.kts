@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.codeygallup"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -29,16 +29,31 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         name = "QuikLog"
-        version = "1.0.1"
+        version = "1.0.2"
         description = """
-            QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive console.log statements manually!
-        """.trimIndent()
+        QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive debug log statements manually!<br>
+        <br>
+        <b>Usage:</b> Highlight a variable and press <b>Ctrl+Alt+Q</b> (Control+Option+Q on macOS) to instantly insert a formatted log statement.<br>
+        <br>
+        <b>Features:</b>
+        <ul>
+            <li><b>One-Click Logging:</b> Highlight any variable and instantly insert a formatted log statement</li>
+            <li><b>Multi-Language Support:</b> Works with JavaScript, TypeScript, Python, Java, C, C++, C#, and Gherkin</li>
+            <li><b>Smart Formatting:</b> Automatically formats log statements according to language conventions</li>
+            <li><b>Context Menu Integration:</b> Right-click and select "Insert QuikLog" from the context menu</li>
+        </ul>
+        <br>
+    """.trimIndent()
 
         ideaVersion {
             sinceBuild = "252.25557"
         }
 
         changeNotes = """
+            <h3>1.0.2</h3>
+            <ul>
+                <li>Enhanced plugin description with usage instructions and keyboard shortcuts</li>
+            </ul>
             <h3>1.0.1</h3>
             <ul>
                 <li>Added plugin icon</li>
