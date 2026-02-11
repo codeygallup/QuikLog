@@ -1,6 +1,6 @@
 # QuikLog
 
-QuikLog is a VS Code extension that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive console.log statements manually and let QuikLog do it for you!
+QuikLog is an IDE extension for VS Code and IntelliJ IDEA that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive debug log statements manually and let QuikLog do it for you!
 
 > ⚡ Instantly insert log statements — no more typing `console.log()` by hand!
 
@@ -17,13 +17,14 @@ QuikLog is a VS Code extension that lets you quickly insert debug log statements
 - **One-Click Logging**: Highlight any variable and instantly insert a formatted log statement
 - **Multi-Language Support**: Works with JavaScript, TypeScript, Python, Java, Gherkin, C, C++, and C#
 - **Smart Formatting**: Automatically formats log statements according to language conventions
-- **Keyboard Shortcut**: Use `Ctrl+Alt+L` (or `Cmd+Alt+L` on Mac) for lightning-fast logging
+- **Keyboard Shortcuts**: Use `Ctrl+Alt+L` on VS Code or `Ctrl+Alt+Q` on IntelliJ (Cmd+Option on Mac) for lightning-fast logging
 - **Context Menu Integration**: Right-click and select "Insert QuikLog" from the context menu
 
 ### How It Works
 
 1. Highlight a variable in your code
-2. Press `Ctrl+Alt+L` (or right-click and select "Insert QuikLog")
+2. Press `Ctrl+Alt+L` (VS Code) or `Ctrl+Alt+Q` (IntelliJ)  
+   Or right-click and select "Insert QuikLog"
 3. Done! A formatted log appears on the next line
 
 ## Supported languages (templates)
@@ -97,22 +98,9 @@ If you encounter other issues, please open an issue in the repository.
 
 ---
 
-## Release notes
+## Release Notes
 
-### 1.2.0
-
-- Fixed Gherkin language detection for .feature files
-- Added C, C++, and C# support
-
-### 1.1.0
-
-- Added support for JSX and TSX files
-- Cursor detection for variables (no selection required)
-- Improved snippet indentation
-
-### 1.0.0
-
-- Initial release: Insert logs for JavaScript/TypeScript, Python, Java, and Feature files. Keyboard shortcut and context menu integration.
+See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ---
 
@@ -139,7 +127,7 @@ MIT © codeygallup
 If QuikLog saves you time, please consider:
 
 - ⭐ Starring the repository on GitHub
-- ✍️ Leaving a review on the VS Code Marketplace
+- ✍️ Leaving a review on the [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=codeygallup.quiklog) or [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30096-quiklog)
 - 🐛 Opening issues for bugs or feature requests
 
 Enjoy logging like a pro! 🐱‍💻
