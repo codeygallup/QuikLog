@@ -4,6 +4,13 @@ All notable changes to the "quiklog" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [intellij-1.0.2] - 2026-02-10
+
+### Changed
+
+- Enhanced plugin description with usage instructions and keyboard shortcuts
+- Improved marketplace listing with detailed feature list
+
 ## [intellij-1.0.1] - 2026-01-19
 
 ### Added
