@@ -1,12 +1,16 @@
 # QuikLog
 
-QuikLog is an IDE extension for VS Code and IntelliJ IDEA that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive debug log statements manually and let QuikLog do it for you!
+QuikLog is an extension for VS Code and JetBrains IDEs that lets you quickly insert debug log statements for any variable in your code with a simple keyboard shortcut or context menu action. Stop writing repetitive debug log statements manually and let QuikLog do it for you!
 
-> ⚡ Instantly insert log statements — no more typing `console.log()` by hand!
+> ⚡ Instantly insert log statements — no more writing them by hand!
 
-**Example:**
+**VS Code Example:**
 
-![QuikLog demo](images/quiklog.gif)
+![VS Code QuikLog demo](images/vscode-quiklog.gif)
+
+**JetBrains Example:**
+
+![JetBrains QuikLog demo](images/jetbrains-quiklog.gif)
 
 [![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/)
 [![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/30096-quiklog)](https://plugins.jetbrains.com/plugin/30096-quiklog)
@@ -17,14 +21,14 @@ QuikLog is an IDE extension for VS Code and IntelliJ IDEA that lets you quickly 
 - **One-Click Logging**: Highlight any variable and instantly insert a formatted log statement
 - **Multi-Language Support**: Works with JavaScript, TypeScript, Python, Java, Gherkin, C, C++, and C#
 - **Smart Formatting**: Automatically formats log statements according to language conventions
-- **Keyboard Shortcuts**: Use `Ctrl+Alt+L` on VS Code or `Ctrl+Alt+Q` on IntelliJ (Cmd+Option on Mac) for lightning-fast logging
+- **Keyboard Shortcuts**: Use `Ctrl+Alt+L` on VS Code or `Ctrl+Alt+Q` on JetBrains (Cmd+Option on macOS) for lightning-fast logging
 - **Context Menu Integration**: Right-click and select "Insert QuikLog" from the context menu
 
 ### How It Works
 
 1. Highlight a variable in your code
-2. Press `Ctrl+Alt+L` (VS Code) or `Ctrl+Alt+Q` (IntelliJ)  
-   Or right-click and select "Insert QuikLog"
+2. Press `Ctrl+Alt+L` (VS Code) or `Ctrl+Alt+Q` (JetBrains)  
+   - Or right-click and select "Insert QuikLog"
 3. Done! A formatted log appears on the next line
 
 ## Supported languages (templates)
@@ -54,7 +58,7 @@ If your language isn't listed, open an issue — templates are easy to add.
 
 Or download from [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=codeygallup.quiklog)
 
-### IntelliJ IDEA
+### JetBrains
 
 1. Open Settings → Plugins
 2. Search for "QuikLog" in the Marketplace
@@ -70,7 +74,7 @@ Or download from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30
 
 **Keyboard shortcuts:**
 - **VS Code**: Ctrl+Alt+L (Cmd+Option+L on macOS)
-- **IntelliJ IDEA**: Ctrl+Alt+Q (Control+Option+Q on macOS)
+- **JetBrains**: Ctrl+Alt+Q (Control+Option+Q on macOS)
 
 Behavior notes:
 
@@ -79,7 +83,7 @@ Behavior notes:
 
 ---
 
-## Extension settings
+## Configuration
 
 QuikLog works out of the box with no required settings. Future releases may add customization such as:
 
@@ -92,7 +96,7 @@ QuikLog works out of the box with no required settings. Future releases may add 
 ## Known issues
 
 - Requires a selection — nothing will be inserted if no text is selected.
-- Language detection is based on the editor language; files with uncommon extensions may not be recognized.
+- Language detection relies on how your IDE identifies the file type; files with uncommon extensions may not be recognized.
 
 If you encounter other issues, please open an issue in the repository.
 
