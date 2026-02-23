@@ -6,7 +6,7 @@ QuikLog is an extension for the VS Code IDE that lets you quickly insert debug l
 
 **Example:**
 
-![VS Code QuikLog demo](images/quiklog.gif)
+![VS Code QuikLog demo](images/vscode-quiklog.gif)
 
 [![VSCode Version](https://img.shields.io/badge/vscode-%3E%3D1.50-blue)](https://code.visualstudio.com/) 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)

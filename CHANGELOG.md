@@ -4,7 +4,12 @@ All notable changes to the "quiklog" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [vscode-v1.2.1] - 2026-02-20
+## [vscode-v1.2.3] - 2026-02-20
+
+### Changed
+- Fixing gif display issue
+
+## [vscode-v1.2.2] - 2026-02-20
 
 ### Changed
 - Removed VS Code files from root `.gitignore`
