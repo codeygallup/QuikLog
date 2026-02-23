@@ -2,7 +2,7 @@
   "name": "quiklog",
   "displayName": "QuikLog",
   "description": "Quickly insert log statements in (almost) any language.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "MIT",
   "icon": "images/icon-large.png",
   "engines": {
