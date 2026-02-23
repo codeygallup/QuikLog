@@ -4,6 +4,11 @@ All notable changes to the "quiklog" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.1] - 2026-02-20
+
+### Changed
+- Updated README to clarify macOS keyboard shortcut (Cmd+Option instead of Alt)
+
 ## [intellij-1.0.2] - 2026-02-10
 
 ### Changed
