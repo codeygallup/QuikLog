@@ -4,7 +4,7 @@ All notable changes to the "quiklog" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [vscode-v1.2.1] - 2026-02-20
+## [vscode-v1.2.1] - 2026-02-22
 
 ### Changed
 - Updated README to clarify macOS keyboard shortcut (Cmd+Option instead of Alt)
