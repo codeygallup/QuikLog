@@ -7,6 +7,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [vscode-v1.2.1] - 2026-02-20
 
 ### Changed
+- Removed VS Code files from root `.gitignore`
+- Updated `vscode/README.md` for clearer instructions and screenshots
+
+## [vscode-v1.2.1] - 2026-02-20
+
+### Changed
 - Updated README to clarify macOS keyboard shortcut (Cmd+Option instead of Alt)
 
 ## [intellij-1.0.2] - 2026-02-10
