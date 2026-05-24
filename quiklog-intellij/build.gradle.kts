@@ -47,7 +47,7 @@ intellijPlatform {
 
         ideaVersion {
             sinceBuild = "252.25557"
-            untilBuild = ""
+            untilBuild.set(provider { null })
         }
 
         changeNotes = """
