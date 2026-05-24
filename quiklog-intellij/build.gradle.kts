@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.codeygallup"
-version = "1.0.2"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
@@ -29,7 +29,7 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         name = "QuikLog"
-        version = "1.0.2"
+        version = "1.1.0"
         description = """
         QuikLog lets you quickly insert debug log statements for any variable in your code. Stop writing repetitive debug log statements manually!<br>
         <br>
@@ -47,6 +47,7 @@ intellijPlatform {
 
         ideaVersion {
             sinceBuild = "252.25557"
+            untilBuild = ""
         }
 
         changeNotes = """
