@@ -15,6 +15,38 @@ class InsertLogAction : AnAction() {
     override fun getActionUpdateThread(): ActionUpdateThread {
         return ActionUpdateThread.BGT
     }
+
+    private fun findInsertLine(document: com.intellij.openapi.editor.Document, fromLine: Int): Int {
+        val currentLineText = document.getText(
+            TextRange(document.getLineStartOffset(fromLine), document.getLineEndOffset(fromLine))
+        ).trim()
+
+        if (!currentLineText.endsWith(",")) return fromLine
+
+        var balance = 0
+
+        for (i in 0..fromLine) {
+            val text = document.getText(TextRange(document.getLineStartOffset(i), document.getLineEndOffset(i)))
+            for (char in text) {
+                if (char in "{[(") balance++
+                if (char in "}])") balance--
+            }
+        }
+
+        if (balance > 0) {
+            for (i in (fromLine + 1) until document.lineCount) {
+                val text = document.getText(TextRange(document.getLineStartOffset(i), document.getLineEndOffset(i)))
+                for (char in text) {
+                    if (char in "{[(") balance++
+                    if (char in "}])") balance--
+                }
+                if (balance <= 0) return i
+            }
+        }
+
+        return fromLine
+    }
+
     override fun actionPerformed(e: AnActionEvent) {
         val project: Project = e.project ?: return
         val editor: Editor = e.getData(CommonDataKeys.EDITOR) ?: return
@@ -57,20 +89,20 @@ class InsertLogAction : AnAction() {
 
         val file = e.getData(CommonDataKeys.PSI_FILE) ?: return
         val fileExtension = file.virtualFile?.extension ?: ""
-        val language = file.language.id.lowercase() ?: ""
 
-        val template = getLogTemplate(language, fileExtension, variable)
+        val template = getLogTemplate(fileExtension, variable)
 
         val currentLine = caretModel.logicalPosition.line
         val lineStartOffset = document.getLineStartOffset(currentLine)
         val lineEndOffset = document.getLineEndOffset(currentLine)
         val lineText = document.getText(TextRange(lineStartOffset, lineEndOffset))
-
         val indent = lineText.takeWhile { it.isWhitespace() }
 
+        val targetLine = findInsertLine(document, currentLine)
+        val targetLineEndOffset = document.getLineEndOffset(targetLine)
+
         WriteCommandAction.runWriteCommandAction(project) {
-            val insertOffset = lineEndOffset
-            document.insertString(insertOffset, "\n$indent$template")
+            document.insertString(targetLineEndOffset, "\n$indent$template")
         }
     }
 
@@ -78,24 +110,22 @@ class InsertLogAction : AnAction() {
         return c.isLetterOrDigit() || c == '_' || c == '$'
     }
 
-    private fun getLogTemplate(language: String, fileExtension: String, variable: String): String {
-        return when {
-            language.contains("javascript") || language.contains("typescript") || fileExtension in listOf("js", "jsx", "ts", "tsx") -> "console.log('$variable: ', $variable);"
+    private val templateMap: Map<String, (String) -> String> = mapOf(
+        "js"      to { v -> "console.log('$v: ', $v);" },
+        "ts"      to { v -> "console.log('$v: ', $v);" },
+        "jsx"     to { v -> "console.log('$v: ', $v);" },
+        "tsx"     to { v -> "console.log('$v: ', $v);" },
+        "java"    to { v -> "System.out.println(\"$v: \" + $v);" },
+        "py"      to { v -> "print('$v: ', $v)" },
+        "feature" to { v -> "* print '$v: ', $v" },
+        "c"       to { v -> "printf(\"%s: %d\\n\", \"$v\", $v);" },
+        "cpp"     to { v -> "std::cout << \"$v: \" << $v << std::endl;" },
+        "cc"      to { v -> "std::cout << \"$v: \" << $v << std::endl;" },
+        "cs"      to { v -> "Console.WriteLine(\"$v: \" + $v);" },
+    )
 
-            language.contains("java") || fileExtension == "java" -> "System.out.println(\"$variable: \" + $variable);"
-
-            language.contains("python") || fileExtension == "py" -> "print('$variable: ', $variable);"
-
-            fileExtension == "feature" -> "* print '$variable: ', $variable"
-
-            language == "c" || fileExtension == "c" -> "printf(\"%s: %d\\n\", \"$variable\", $variable);"
-
-            language.contains("c++") || language == "objectivec" || fileExtension in listOf("cpp", "cc", "cxx", "hpp", "h") -> "std::cout << \"$variable: \" << $variable << std::endl;"
-
-            language.contains("c#") || fileExtension == "cs" -> "Console.WriteLine(\"$variable: \" + $variable);"
-
-            else -> variable
-        }
+    private fun getLogTemplate(fileExtension: String, variable: String): String {
+        return templateMap[fileExtension]?.invoke(variable) ?: variable
     }
 
     override fun update(e: AnActionEvent) {
