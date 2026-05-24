@@ -3,6 +3,37 @@
 import * as vscode from "vscode";
 import { getLogTemplate } from "./logTemplate";
 
+function findInsertLine(
+  document: vscode.TextDocument,
+  lineNumber: number,
+): number {
+  const currentLineText = document.lineAt(lineNumber).text.trim();
+
+  // Only apply smart insert for lines ending with a comma (destructuring/object patterns)
+  if (!currentLineText.endsWith(",")) return lineNumber;
+
+  let balance = 0;
+
+  for (let i = 0; i <= lineNumber; i++) {
+    for (const char of document.lineAt(i).text) {
+      if ("{[(".includes(char)) balance++;
+      if ("}])".includes(char)) balance--;
+    }
+  }
+
+  if (balance > 0) {
+    for (let i = lineNumber + 1; i < document.lineCount; i++) {
+      for (const char of document.lineAt(i).text) {
+        if ("{[(".includes(char)) balance++;
+        if ("}])".includes(char)) balance--;
+      }
+      if (balance <= 0) return i;
+    }
+  }
+
+  return lineNumber;
+}
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -35,7 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       if (!variable) {
         vscode.window.showInformationMessage(
-          "Please highlight a variable or put the cursor on it to insert a QuikLog."
+          "Please highlight a variable or put the cursor on it to insert a QuikLog.",
         );
         return;
       }
@@ -44,17 +75,20 @@ export function activate(context: vscode.ExtensionContext) {
       const template = getLogTemplate(language, variable);
 
       // Insert the template on the next line after the current selection
-      const currentLine = document.lineAt(selection.end.line);
-      const lineEnd = currentLine.range.end;
-      const indent = currentLine.text.substring(
-        0,
-        currentLine.firstNonWhitespaceCharacterIndex
-      );
+      const targetLineIndex = findInsertLine(document, selection.end.line);
+      const targetLine = document.lineAt(targetLineIndex);
+      const lineEnd = targetLine.range.end;
+      const indent = document
+        .lineAt(selection.end.line)
+        .text.substring(
+          0,
+          document.lineAt(selection.end.line).firstNonWhitespaceCharacterIndex,
+        );
 
       await editor.edit((editBuilder) => {
         editBuilder.insert(lineEnd, "\n" + `${indent}${template}`);
       });
-    }
+    },
   );
 
   context.subscriptions.push(insertLogDisposable);
