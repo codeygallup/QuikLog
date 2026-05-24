@@ -5,53 +5,57 @@ describe("getLogTemplate", () => {
   it("returns JS/TS template", () => {
     assert.strictEqual(
       getLogTemplate("javascript", "myVar"),
-      "console.log('myVar: ', myVar);"
+      "console.log('myVar: ', myVar);",
     );
     assert.strictEqual(
       getLogTemplate("typescript", "myVar"),
-      "console.log('myVar: ', myVar);"
+      "console.log('myVar: ', myVar);",
     );
   });
 
   it("returns Java template", () => {
     assert.strictEqual(
       getLogTemplate("java", "myVar"),
-      'System.out.println("myVar: " + myVar);'
+      'System.out.println("myVar: " + myVar);',
     );
   });
 
   it("returns Python template", () => {
     assert.strictEqual(
       getLogTemplate("python", "myVar"),
-      "print('myVar: ', myVar)"
+      "print('myVar: ', myVar)",
     );
   });
 
   it("returns Feature template", () => {
     assert.strictEqual(
       getLogTemplate("gherkin", "myVar"),
-      "* print 'myVar: ', myVar"
+      "* print 'myVar: ', myVar",
+    );
+    assert.strictEqual(
+      getLogTemplate("feature", "myVar"),
+      "* print 'myVar: ', myVar",
     );
   });
 
   it("returns C template", () => {
     assert.strictEqual(
       getLogTemplate("c", "myVar"),
-      'printf("%s: %d\\n", "myVar", myVar);'
+      'printf("%s: %d\\n", "myVar", myVar);',
     );
   });
 
   it("returns C++ template", () => {
     assert.strictEqual(
       getLogTemplate("cpp", "myVar"),
-      'std::cout << "myVar: " << myVar << std::endl;'
+      'std::cout << "myVar: " << myVar << std::endl;',
     );
   });
 
   it("returns C# template", () => {
     assert.strictEqual(
       getLogTemplate("csharp", "myVar"),
-      'Console.WriteLine("myVar: " + myVar);'
+      'Console.WriteLine("myVar: " + myVar);',
     );
   });
 
