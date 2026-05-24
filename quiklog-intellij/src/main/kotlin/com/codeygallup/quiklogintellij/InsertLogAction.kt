@@ -15,6 +15,38 @@ class InsertLogAction : AnAction() {
     override fun getActionUpdateThread(): ActionUpdateThread {
         return ActionUpdateThread.BGT
     }
+
+    private fun findInsertLine(document: com.intellij.openapi.editor.Document, fromLine: Int): Int {
+        val currentLineText = document.getText(
+            TextRange(document.getLineStartOffset(fromLine), document.getLineEndOffset(fromLine))
+        ).trim()
+
+        if (!currentLineText.endsWith(",")) return fromLine
+
+        var balance = 0
+
+        for (i in 0..fromLine) {
+            val text = document.getText(TextRange(document.getLineStartOffset(i), document.getLineEndOffset(i)))
+            for (char in text) {
+                if (char in "{[(") balance++
+                if (char in "}])") balance--
+            }
+        }
+
+        if (balance > 0) {
+            for (i in (fromLine + 1) until document.lineCount) {
+                val text = document.getText(TextRange(document.getLineStartOffset(i), document.getLineEndOffset(i)))
+                for (char in text) {
+                    if (char in "{[(") balance++
+                    if (char in "}])") balance--
+                }
+                if (balance <= 0) return i
+            }
+        }
+
+        return fromLine
+    }
+
     override fun actionPerformed(e: AnActionEvent) {
         val project: Project = e.project ?: return
         val editor: Editor = e.getData(CommonDataKeys.EDITOR) ?: return
@@ -64,12 +96,13 @@ class InsertLogAction : AnAction() {
         val lineStartOffset = document.getLineStartOffset(currentLine)
         val lineEndOffset = document.getLineEndOffset(currentLine)
         val lineText = document.getText(TextRange(lineStartOffset, lineEndOffset))
-
         val indent = lineText.takeWhile { it.isWhitespace() }
 
+        val targetLine = findInsertLine(document, currentLine)
+        val targetLineEndOffset = document.getLineEndOffset(targetLine)
+
         WriteCommandAction.runWriteCommandAction(project) {
-            val insertOffset = lineEndOffset
-            document.insertString(insertOffset, "\n$indent$template")
+            document.insertString(targetLineEndOffset, "\n$indent$template")
         }
     }
 
