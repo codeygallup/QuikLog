@@ -51,6 +51,12 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <h3>1.1.0</h3>
+            <ul>
+                <li>Fixed compatibility with IntelliJ 2026.x</li>
+                <li>Smart insert: logs now insert after closing bracket in destructuring patterns</li>
+                <li>Refactored language templates to extension-based map</li>
+            </ul>
             <h3>1.0.2</h3>
             <ul>
                 <li>Enhanced plugin description with usage instructions and keyboard shortcuts</li>
