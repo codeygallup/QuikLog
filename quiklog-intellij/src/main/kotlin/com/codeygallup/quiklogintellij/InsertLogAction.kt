@@ -57,9 +57,8 @@ class InsertLogAction : AnAction() {
 
         val file = e.getData(CommonDataKeys.PSI_FILE) ?: return
         val fileExtension = file.virtualFile?.extension ?: ""
-        val language = file.language.id.lowercase() ?: ""
 
-        val template = getLogTemplate(language, fileExtension, variable)
+        val template = getLogTemplate(fileExtension, variable)
 
         val currentLine = caretModel.logicalPosition.line
         val lineStartOffset = document.getLineStartOffset(currentLine)
@@ -78,24 +77,22 @@ class InsertLogAction : AnAction() {
         return c.isLetterOrDigit() || c == '_' || c == '$'
     }
 
-    private fun getLogTemplate(language: String, fileExtension: String, variable: String): String {
-        return when {
-            language.contains("javascript") || language.contains("typescript") || fileExtension in listOf("js", "jsx", "ts", "tsx") -> "console.log('$variable: ', $variable);"
+    private val templateMap: Map<String, (String) -> String> = mapOf(
+        "js"      to { v -> "console.log('$v: ', $v);" },
+        "ts"      to { v -> "console.log('$v: ', $v);" },
+        "jsx"     to { v -> "console.log('$v: ', $v);" },
+        "tsx"     to { v -> "console.log('$v: ', $v);" },
+        "java"    to { v -> "System.out.println(\"$v: \" + $v);" },
+        "py"      to { v -> "print('$v: ', $v)" },
+        "feature" to { v -> "* print '$v: ', $v" },
+        "c"       to { v -> "printf(\"%s: %d\\n\", \"$v\", $v);" },
+        "cpp"     to { v -> "std::cout << \"$v: \" << $v << std::endl;" },
+        "cc"      to { v -> "std::cout << \"$v: \" << $v << std::endl;" },
+        "cs"      to { v -> "Console.WriteLine(\"$v: \" + $v);" },
+    )
 
-            language.contains("java") || fileExtension == "java" -> "System.out.println(\"$variable: \" + $variable);"
-
-            language.contains("python") || fileExtension == "py" -> "print('$variable: ', $variable);"
-
-            fileExtension == "feature" -> "* print '$variable: ', $variable"
-
-            language == "c" || fileExtension == "c" -> "printf(\"%s: %d\\n\", \"$variable\", $variable);"
-
-            language.contains("c++") || language == "objectivec" || fileExtension in listOf("cpp", "cc", "cxx", "hpp", "h") -> "std::cout << \"$variable: \" << $variable << std::endl;"
-
-            language.contains("c#") || fileExtension == "cs" -> "Console.WriteLine(\"$variable: \" + $variable);"
-
-            else -> variable
-        }
+    private fun getLogTemplate(fileExtension: String, variable: String): String {
+        return templateMap[fileExtension]?.invoke(variable) ?: variable
     }
 
     override fun update(e: AnActionEvent) {
